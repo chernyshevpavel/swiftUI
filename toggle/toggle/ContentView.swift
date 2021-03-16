@@ -16,6 +16,7 @@ struct ContentView: View {
                 VStack(content: {
                     HStack(content: {
                         VStack(content: {
+                            Text("menu").textCase(.uppercase).padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                             Text("menu 1")
                             Text("menu 2")
                             Text("menu 3")
@@ -23,7 +24,7 @@ struct ContentView: View {
                         Spacer()
                     })
                     Spacer()
-                }).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
+                }).padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
                 ZStack(content: {
                     Rectangle().fill(Color.gray)
                     Text("Hello, world!").fontWeight(.bold)
