@@ -13,29 +13,34 @@ struct ContentView: View {
     
     
     var body: some View {
-        Button(action: {
-            self.isError = true
-        }, label: {
-            Text("Alert").alert(isPresented: $isError, content: {
-                Alert(
-                    title: Text("Loading"),
-                    message: Text("Are u shuer"),
-                    primaryButton: .destructive(Text("Yes"), action: {
-                        print("test")
-                    }),
-                    secondaryButton: .cancel())
+        VStack {
+            Button(action: {
+                //self.isError = true
+            }, label: {
+                Text("Alert").alert(isPresented: $isError, content: {
+                    Alert(
+                        title: Text("Loading"),
+                        message: Text("Are u shuer"),
+                        primaryButton: .destructive(Text("Yes"), action: {
+                            print("test")
+                        }),
+                        secondaryButton: .cancel())
+                })
             })
-        })
-        Button(action: {
-            self.action = true
-        }, label: {
-            Text("Action")
-        }).actionSheet(isPresented: $action, content: {
-            ActionSheet(
-                title: Text("Loading"),
-                message: Text("Do you wat to load photo"),
-                buttons: [.cancel(),.default(Text("default"))])
-        })
+            Button(action: {
+                self.action = true
+            }, label: {
+                Text("Action")
+            }).actionSheet(isPresented: $action, content: {
+                ActionSheet(
+                    title: Text("Loading"),
+                    message: Text("Do you wat to load photo"),
+                    buttons: [.cancel(),.default(Text("default"), action: {
+                        self.isError = !isError
+                    })])
+            })
+        }
+
     }
 }
 
